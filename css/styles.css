@@ -3,11 +3,7 @@
 }
 
 body {
-    margin: 16px;
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #fafafa;
-    color: #212121;
-    line-height: 1.5;
 }
 
 ul {
@@ -17,6 +13,26 @@ ul {
     list-style-type: none;
 }
 
-img {
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.gallery-item {
+    width: 360px;
+    height: 200px;
+    overflow: hidden;
+}
+.gallery-item:hover,
+.gallery-item:focus {
+    transform: scale(1.04);
+    transition: transform 250ms linear;
+}
+
+.gallery-image {
     display: block;
+    max-width: 100%;
 }

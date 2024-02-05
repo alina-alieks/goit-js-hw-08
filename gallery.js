@@ -66,11 +66,8 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-let galleryItems = [];
-
-console.log(images.map(el => {
-    `
-    <li class="gallery-item">
+const galleryHTML = images.map(el => {
+  return `<li class="gallery-item">
         <a class="gallery-link" href="${el.original}">
             <img
                 class="gallery-image"
@@ -80,6 +77,19 @@ console.log(images.map(el => {
             />
         </a>
     </li>`
-}))
+}).join("");
 
-console.log("Hello")
+gallery.insertAdjacentHTML("afterbegin", galleryHTML);
+
+function addFunctionOnClick(event) {
+  event.preventDefault();
+  const galleryLink = event.target.parentNode;
+  if (galleryLink.nodeName !== "A") {
+    return
+  }
+  const getLinkImage = galleryLink.getAttribute("href");
+  console.log(getLinkImage);
+}
+gallery.addEventListener("click", addFunctionOnClick);
+
+
