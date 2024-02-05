@@ -88,7 +88,12 @@ function addFunctionOnClick(event) {
     return
   }
   const getLinkImage = galleryLink.getAttribute("href");
-  console.log(getLinkImage);
+  
+  basicLightbox.create(`
+    <div class="modal">
+    <img src="${getLinkImage}" width="1112" height="640">
+    </div>
+	`).show()
 }
 gallery.addEventListener("click", addFunctionOnClick);
 
